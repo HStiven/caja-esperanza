@@ -1,0 +1,26 @@
+/* Animacion de los botones del menu */
+.element-card-generic {
+    width: 87px;
+    transition: width 0.3s ease-in-out;
+}
+.element-card-generic.full-dropdown {
+    width: 200px;
+}
+
+/* Animacion de los botones de la ruta */
+.element-button-route {
+    width: 85%;
+    transition: width 0.3s ease-in-out;
+}
+.element-button-route.full-dropdown {
+    width: 100%;
+}
+
+/* Boton de logout */
+.element-button-logout{
+    width: 40px;
+    transition: width 0.3s ease-in-out;
+}
+.element-button-logout.full-dropdown {
+    width: 100%;
+}
