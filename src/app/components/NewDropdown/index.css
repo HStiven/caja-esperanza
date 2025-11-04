@@ -1,6 +1,6 @@
 /* Animacion de los botones del menu */
 .element-card-generic {
-    width: 87px;
+    width: 70px;
     transition: width 0.3s ease-in-out;
 }
 .element-card-generic.full-dropdown {
