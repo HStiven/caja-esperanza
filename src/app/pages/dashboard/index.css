@@ -1,0 +1,39 @@
+.fondo-vitae {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(160deg, #008c9e 0%, #a86acb 100%);
+  overflow: hidden;
+}
+
+/* Hexágono translúcido */
+.fondo-vitae::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  clip-path: polygon(
+    50% 0%, 
+    93% 25%, 
+    93% 75%, 
+    50% 100%, 
+    7% 75%, 
+    7% 25%
+  );
+  transform: translate(-50%, -50%);
+}
+
+/* Ola inferior */
+.fondo-vitae::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(160deg, #008c9e 0%, #a86acb 100%);
+  clip-path: path("M0,100 C500,180 1400,0 1920,120 L1920,300 L0,300 Z");
+}

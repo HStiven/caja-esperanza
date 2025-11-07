@@ -124,3 +124,94 @@ input:-webkit-autofill {
 .michigan-text-tertiary {
 	color: #010060 !important;
 }
+
+@font-face {
+  font-family: 'Champ-BoldExtra';
+  src: url('_metronic/fonticon/Poppins-LightItalic.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Champ-Bold';	
+  src: url('_metronic/fonticon/Champ-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Champ-Black';
+  src: url('_metronic/fonticon/Champ-Black.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Champ-Light';
+  src: url('_metronic/fonticon/Champ-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url('_metronic/fonticon/Poppins-Light.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('_metronic/fonticon/Poppins-Bold.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Poppins-LightItalic';
+  src: url('_metronic/fonticon/Poppins-LightItalic.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('_metronic/fonticon/Poppins-Medium.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Poppins-extrabold';
+  src: url('_metronic/fonticon/Poppins-ExtraBold.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Allura-Regular';
+  src: url('_metronic/fonticon/Allura-Regular.ttf') format('opentype');
+}
+
+.champ-extrabold {
+  font-family: 'Champ-BoldExtra', sans-serif !important;
+}
+.champ-bold {
+  font-family: 'Champ-Bold', sans-serif !important;
+}
+.champ-black {
+  font-family: 'Champ-Black', sans-serif !important;
+}
+.champ-light {
+  font-family: 'Champ-Light', sans-serif !important;
+}
+
+.poppins-light {
+  font-family: 'Poppins-Light', sans-serif !important;
+}
+
+.poppins-bold {
+  font-family: 'Poppins-Bold', sans-serif !important;
+}
+
+.poppins-light-italic {
+  font-family: 'Poppins-LightItalic', sans-serif !important;
+}
+
+.blue-michigan {
+  color: #2d30e1;
+}
+
+.poppins-medium {
+  font-family: 'Poppins-Medium', sans-serif !important;
+}
+
+.poppins-extrabold {
+  font-family: 'Poppins-extrabold', sans-serif !important;
+}
+
+.allura-regular {
+  font-family: 'Allura-regular', sans-serif !important;
+}

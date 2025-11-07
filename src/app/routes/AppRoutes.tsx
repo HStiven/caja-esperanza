@@ -7,8 +7,9 @@ const AppRoutes = () => {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/" element={<DashboardMain />}/>
                 <Route element={<AssistantRoutes />}>
-                    <Route path="/" element={<DashboardMain />}/>
+                    <Route path="/info" element={<></>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
