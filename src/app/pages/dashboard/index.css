@@ -37,3 +37,149 @@
   background: linear-gradient(160deg, #008c9e 0%, #a86acb 100%);
   clip-path: path("M0,100 C500,180 1400,0 1920,120 L1920,300 L0,300 Z");
 }
+
+.btn-back {
+  color: white;
+  position: absolute;
+  font-size: 2rem;
+  top: 10%;
+  left: 6%;
+  cursor: pointer;
+}
+
+.btn-back:hover{
+  color: #a86acb;
+}
+
+.form {
+  --bg-light: #efefef;
+  --bg-dark: #707070;
+  --clr: #a86acb;
+  --clr-alpha: #e9e9e983;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.form .input-span {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+  border-radius: 0.5rem;
+  padding: 1rem 0.75rem;
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--clr-alpha);
+  outline: 2px solid var(--bg-dark);
+}
+
+.form input[type="email"]:focus,
+.form input[type="password"]:focus, .label:focus {
+  outline: 2px solid var(--clr);
+}
+
+.form input[type="email"]:focus ~ .label,
+.form input[type="password"]:focus ~ .label {
+  color: var(--clr);
+}
+
+.label {
+  font-size: 2rem;
+  align-self: flex-start;
+  color: var(--clr);
+  font-weight: 600;
+  transition: color 300ms;
+}
+
+.form .submit {
+  padding: 1rem 0.75rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 3rem;
+  background-color: var(--clr);
+  color: var(--bg-light);
+  border: none;
+  cursor: pointer;
+  transition: all 300ms;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.form .submit:hover {
+  background-color: whitesmoke;
+  color: var(--clr);
+}
+
+.span-little {
+  color: var(--bg-dark);
+  font-size: 1.2rem;
+}
+
+.span-little a {
+  text-decoration: solid;
+  color: var(--clr);
+}
+
+.span-little a:hover {
+  color: white;
+}
+
+/* Animación de "abrir carta" */
+
+@keyframes cardOpen {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Para un efecto más dramático de "abrir carta" */
+@keyframes cardFlip {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0) scale(1);
+  }
+}
+
+/* Estilos para el blur y transición suave */
+.transition-all {
+  transition: all 0.5s ease-in-out;
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+/* Asegurar que el z-index funcione correctamente */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
