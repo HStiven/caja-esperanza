@@ -1,6 +1,6 @@
 import './index.css';
-import { MusicNote, School, BusinessCenter } from '@mui/icons-material';
-import type { CustomizeMissionLetter, UsService } from './interface/typesInfo';
+import { MusicNote, School, BusinessCenter, SelfImprovement, FitnessCenter, Diversity3 } from '@mui/icons-material';
+import type { CustomizeMissionLetter, ListFundationDefinitive, UsService } from './interface/typesInfo';
 import { UsServers } from './elements/usServers';
 import { OurFoundation } from './elements/ourFoundation';
 const InfoPage: React.FC = () => {
@@ -38,12 +38,55 @@ const InfoPage: React.FC = () => {
 
     const foundationCards = [
         {
-            icon: <School className="text-4xl" />,  
+            icon: <School style={{ fontSize: '2.8rem' }} />,
             color: 'bg-red-500',
             textColor: 'text-white',
-            title: 'Dimensión Cognitiva'
+            title: 'Dimensión Cognitiva',
+            description: 'Desarrollo del pensamiento crítico, habilidades analíticas y capacidad de aprendizaje continuo.'
         },
-    ]
+        {
+            icon: <SelfImprovement style={{ fontSize: '2.8rem' }} />,
+            color: 'bg-blue-500',
+            textColor: 'text-white',
+            title: 'Dimensión Espiritual',
+            description: 'Cultivo de valores, principios éticos y conexión con el propósito de vida.'
+        },
+        {
+            icon: <FitnessCenter style={{ fontSize: '2.8rem' }} />,
+            color: 'bg-green-500',
+            textColor: 'text-white',
+            title: 'Dimensión Corporal',
+            description: 'Cuidado de la salud física, bienestar corporal y desarrollo de hábitos saludables.'
+        },
+        {
+            icon: <Diversity3 style={{ fontSize: '2.8rem' }} />,
+            color: 'bg-purple-500',
+            textColor: 'text-white',
+            title: 'Dimensión Socio-afectiva',
+            description: 'Desarrollo de inteligencia emocional, habilidades sociales y relaciones interpersonales.'
+        }
+    ];
+
+    const foundationData: ListFundationDefinitive[] = [
+        {
+            id: "1",
+            title: "Programa de emprendimiento social y económico, que desarrollamos durante la semana con chicas entre los 15 y los 18 años.",
+        },
+        {
+            id: "2",
+            title: "Trabajamos varias ideas de productos.",
+            SubListFundation: [
+                { id: "2-1", text: "Submisión de camisetas" },
+                { id: "2-2", text: "Submisión de vasos grupos de diferentes tamaños" },
+                { id: "2-3", text: "Submisión de gorras" },
+                { id: "2-4", text: "Aromas artesanales de varios tamaños" }
+            ]
+        },
+        {
+            id: "3",
+            title: "Brigadas: Nuestra fundación realiza cada año brigadas en diferentes localidades, en diversas áreas, como salud, belleza y educación.",
+        }
+    ];
 
     return (
         <section
@@ -55,7 +98,7 @@ const InfoPage: React.FC = () => {
             </div>
 
             <div className="w-full md:h-screen md:snap-always md:snap-start">
-                <OurFoundation CardsFundaments={foundationCards} />
+                <OurFoundation CardsFundaments={foundationCards} ListFundationDefinitive={foundationData} />
             </div>
         </section>
     )

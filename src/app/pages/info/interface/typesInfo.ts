@@ -24,3 +24,14 @@ export interface CardsFundaments {
     textColor: string;
     title: string;
 }
+
+type SubListFundation = {
+    id: string;
+    text: string;
+}
+
+export interface ListFundationDefinitive {
+    id: string;
+    title: string;
+    SubListFundation?: SubListFundation[];
+}
