@@ -1,24 +1,53 @@
 import './index.css';
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { use, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import { AnimatedScrollComponent } from '../AnimatedRenderContent';
 import RadarIcon from '@mui/icons-material/Radar';
 import Groups2Icon from '@mui/icons-material/Groups2';
 
 const NewDropDown = () => {
     const [show, setShow] = useState<'mini' | 'full'>('mini');
-    const location = useLocation();
+    const [activeSection, setActiveSection] = useState<string>('');
+    const navigate = useNavigate();
 
     const navButtons = [
-        { path: '/dashboard', type: 'icon', iconClass: 'fa-solid fa-house', text: 'Inicio' },
-        { path: '/s', type: 'icon', icon: <RadarIcon sx={{ fontSize: 26, color: 'white' }} />, text: 'Fundamentos' }, // Material
-        { path: '/t', type: 'iconClass', iconClass: 'fa-solid fa-circle-info', text: 'Misión y visión' }, // Font Awesome
-        { path: '/b', type: 'icon', icon: <Groups2Icon sx={{ fontSize: 26, color: 'white' }} />, text: 'Nosotros' }, // Material
+        // { path: '/dashboard', type: 'icon', iconClass: 'fa-solid fa-house', text: 'Inicio' },
+        { id: 'usservers', type: 'icon', icon: <LocalLibraryIcon sx={{ fontSize: 26, color: 'white' }} />, text: 'Fundamentos' }, // Material
+        { id: '', type: 'icon', icon: <RadarIcon sx={{ fontSize: 26, color: 'white' }} />, text: 'Radar' }, // Material
+        { id: '', type: 'iconClass', iconClass: 'fa-solid fa-circle-info', text: 'Misión y visión' }, // Font Awesome
+        { id: '', type: 'icon', icon: <Groups2Icon sx={{ fontSize: 26, color: 'white' }} />, text: 'Nosotros' }, // Material
     ];
 
     const toggleSidebar = () => {
         setShow((prev) => (prev === 'mini' ? 'full' : 'mini'));
     };
+
+    // IntersectionObserver para detectar secciones visibles
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.3 } // 30% de la sección visible
+        );
+
+        // Observar todos los elementos con los ids de las secciones
+        navButtons.forEach((btn) => {
+            const element = document.getElementById(btn.id);
+            if (element) {
+                observer.observe(element);
+            }
+        });
+
+        return () => {
+            observer.disconnect();
+        };
+    }, [navButtons]);
 
     return (
         <div id="openSideBar">
@@ -56,6 +85,7 @@ const NewDropDown = () => {
                                 <div className="flex justify-center items-center">
                                     <img
                                         className="cursor-pointer w-[70%]"
+                                        onClick={() => { navigate('/') }}
                                         src="src/app/media/img-logo.png"
                                         draggable="false"
                                         alt="logo"
@@ -72,6 +102,7 @@ const NewDropDown = () => {
                                 <div className="flex justify-center items-center">
                                     <img
                                         className="cursor-pointer w-[80%]"
+                                        onClick={() => { navigate('/') }}
                                         src="src/app/media/img-logo.png"
                                         draggable="false"
                                         alt="logo"
@@ -97,7 +128,7 @@ const NewDropDown = () => {
                                 } mt-4 gap-3 px-3`}
                         >
                             {navButtons.map((btn, index) => {
-                                const isActive = location.pathname === btn.path;
+                                const isActive = activeSection === btn.id;
 
                                 return (
                                     <div
@@ -105,16 +136,22 @@ const NewDropDown = () => {
                                         className={`flex justify-between items-center ${show === 'full' ? 'full-dropdown' : ''
                                             }`}
                                         style={{
-                                            backgroundColor: isActive ? '#3780EE' : 'transparent',
+                                            backgroundColor: isActive ? '#e911f892' : 'transparent',
                                             borderRadius: '10px',
-                                            padding: '6px 0px',
+                                            padding: '6px 10px',
                                             cursor: 'pointer',
                                         }}
-                                        onClick={() => (window.location.href = btn.path)}
+                                        onClick={() => {
+                                            const element = document.getElementById(btn.id);
+                                            if (element) {
+                                                element.scrollIntoView({ behavior: 'smooth' });
+                                                window.location.hash = btn.id;
+                                            }
+                                        }}
                                     >
                                         {show === 'full' ? (
                                             <>
-                                                <div className="flex justify-start items-center gap-3">
+                                                <div className="flex justify-start items-center gap-2">
                                                     {/* 👇 Aquí se maneja FontAwesome o Material */}
                                                     {btn.iconClass ? (
                                                         <i className={`${btn.iconClass} text-white text-[2.2rem]`} />
@@ -125,7 +162,7 @@ const NewDropDown = () => {
                                                     <h4 className="champ-light text-white mt-1 mb-0">{btn.text}</h4>
                                                 </div>
                                                 {isActive && (
-                                                    <div className="me-1 w-[5px] h-[20px] bg-white rounded-[20px]" />
+                                                    <div className="ms-3 w-[5px] h-[20px] bg-white rounded-[20px]" />
                                                 )}
                                             </>
                                         ) : (
