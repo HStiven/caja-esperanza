@@ -37,8 +37,7 @@ const InfoPage: React.FC = () => {
 
     return (
         <section className="w-full h-full flex flex-col overflow-x-hidden overflow-y-auto">
-            <UsServers services={services} />
-
+            <UsServers services={services} visionLetter={visionLetter} missionLetter={missionLetter} />
         </section>
     )
 }
