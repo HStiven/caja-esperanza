@@ -1,7 +1,8 @@
+import './index.css';
 import { MusicNote, School, BusinessCenter } from '@mui/icons-material';
 import type { CustomizeMissionLetter, UsService } from './interface/typesInfo';
 import { UsServers } from './elements/usServers';
-
+import { OurFoundation } from './elements/ourFoundation';
 const InfoPage: React.FC = () => {
     
     const services: UsService[] = [
@@ -35,9 +36,27 @@ const InfoPage: React.FC = () => {
         textInfo: 'Nuestra visión es ser un referente en la protección y promoción de los derechos de las niñas, garantizando su bienestar y desarrollo integral.'
     }
 
+    const foundationCards = [
+        {
+            icon: <School className="text-4xl" />,  
+            color: 'bg-red-500',
+            textColor: 'text-white',
+            title: 'Dimensión Cognitiva'
+        },
+    ]
+
     return (
-        <section className="w-full h-full flex flex-col overflow-x-hidden overflow-y-auto">
-            <UsServers services={services} visionLetter={visionLetter} missionLetter={missionLetter} />
+        <section
+            className="w-full h-screen md:snap-y md:snap-mandatory overflow-y-auto"
+            style={{ scrollBehavior: 'smooth' }}
+        >
+            <div className="w-full h-screen md:snap-always md:snap-start">
+                <UsServers services={services} visionLetter={visionLetter} missionLetter={missionLetter} />
+            </div>
+
+            <div className="w-full md:h-screen md:snap-always md:snap-start">
+                <OurFoundation CardsFundaments={foundationCards} />
+            </div>
         </section>
     )
 }

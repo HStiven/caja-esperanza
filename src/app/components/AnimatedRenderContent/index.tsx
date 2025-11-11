@@ -28,7 +28,7 @@ export const AnimatedScrollComponent = ({
 
   return (
     <motion.div
-      className={`w-100 ${className}`}
+      className={`${className}`}
       initial={initial}
       animate={animate}
       exit={withExit ? exit : undefined}

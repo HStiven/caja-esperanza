@@ -1,0 +1,10 @@
+.app-background {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+}
+
+.background-step-one {
+    background-image: radial-gradient(circle at 50% -20.71%, #ff97bd 0, #ff8ec2 10%, #ff85c7 20%, #fb7ccd 30%, #eb74d3 40%, #d86cd8 50%, #c166de 60%, #a663e4 70%, #8662e9 80%, #5c63ef 90%, #0065f3 100%);
+}

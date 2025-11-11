@@ -14,7 +14,7 @@ const NewDropDown = () => {
     const navButtons = [
         // { path: '/dashboard', type: 'icon', iconClass: 'fa-solid fa-house', text: 'Inicio' },
         { id: 'usservers', type: 'icon', icon: <LocalLibraryIcon sx={{ fontSize: 26, color: 'white' }} />, text: 'Fundamentos' }, // Material
-        { id: '', type: 'icon', icon: <RadarIcon sx={{ fontSize: 26, color: 'white' }} />, text: 'Radar' }, // Material
+        { id: 'ourfundation', type: 'icon', icon: <RadarIcon sx={{ fontSize: 26, color: 'white' }} />, text: 'Radar' }, // Material
         { id: '', type: 'iconClass', iconClass: 'fa-solid fa-circle-info', text: 'Misión y visión' }, // Font Awesome
         { id: '', type: 'icon', icon: <Groups2Icon sx={{ fontSize: 26, color: 'white' }} />, text: 'Nosotros' }, // Material
     ];
@@ -177,7 +177,6 @@ const NewDropDown = () => {
                             })}
                         </div>
                     </article>
-
                 </div>
             </main>
         </div>
