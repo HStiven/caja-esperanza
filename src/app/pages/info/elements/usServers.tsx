@@ -13,13 +13,13 @@ const UsServers: React.FC<UsServersProps> = ({ services, missionLetter, visionLe
     const navigate = useNavigate();
 
     // Mapeo estático de clases Tailwind para evitar problemas con purge/JIT
-    const COLOR_CLASSES: Record<string, { bg: string; border: string; text: string }> = {
-        'green-500': { bg: 'bg-green-500', border: 'border-3 border-green-500', text: 'text-green-500' },
-        'blue-500': { bg: 'bg-blue-500', border: 'border-3 border-blue-500', text: 'text-blue-500' },
-        'red-500': { bg: 'bg-red-500', border: 'border-3 border-red-500', text: 'text-red-500' },
-        'purple-500': { bg: 'bg-purple-500', border: 'border-3 border-purple-500', text: 'text-purple-500' },
-        'pink-500': { bg: 'bg-pink-500', border: 'border-3 border-pink-500', text: 'text-pink-500' },
-    }
+    // const COLOR_CLASSES: Record<string, { bg: string; border: string; text: string }> = {
+    //     'green-500': { bg: 'bg-green-500', border: 'border-3 border-green-500', text: 'text-green-500' },
+    //     'blue-500': { bg: 'bg-blue-500', border: 'border-3 border-blue-500', text: 'text-blue-500' },
+    //     'red-500': { bg: 'bg-red-500', border: 'border-3 border-red-500', text: 'text-red-500' },
+    //     'purple-500': { bg: 'bg-purple-500', border: 'border-3 border-purple-500', text: 'text-purple-500' },
+    //     'pink-500': { bg: 'bg-pink-500', border: 'border-3 border-pink-500', text: 'text-pink-500' },
+    // }
 
 
     return (
