@@ -1,11 +1,11 @@
 import './index.css';
-import { use, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import { AnimatedScrollComponent } from '../AnimatedRenderContent';
 import RadarIcon from '@mui/icons-material/Radar';
 import Groups2Icon from '@mui/icons-material/Groups2';
-
+import logo from './../../media/img-logo.png';
 const NewDropDown = () => {
     const [show, setShow] = useState<'mini' | 'full'>('mini');
     const [activeSection, setActiveSection] = useState<string>('');
@@ -86,7 +86,7 @@ const NewDropDown = () => {
                                     <img
                                         className="cursor-pointer w-[70%]"
                                         onClick={() => { navigate('/') }}
-                                        src="src/app/media/img-logo.png"
+                                        src={logo}
                                         draggable="false"
                                         alt="logo"
                                     />
@@ -103,7 +103,7 @@ const NewDropDown = () => {
                                     <img
                                         className="cursor-pointer w-[80%]"
                                         onClick={() => { navigate('/') }}
-                                        src="src/app/media/img-logo.png"
+                                        src={logo}
                                         draggable="false"
                                         alt="logo"
                                     />
