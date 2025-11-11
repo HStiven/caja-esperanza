@@ -6,3 +6,13 @@ export interface UsService {
     description: string;
     color: string;
 }
+
+export interface CustomizeMissionLetter {
+    color: string;
+    textInfo: string;
+}
+
+export interface CustomizeVisionChart{
+    color: string;
+    textInfo: string;
+}
