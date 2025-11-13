@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh;
   background: linear-gradient(160deg, #008c9e 0%, #a86acb 100%);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Hexágono translúcido */

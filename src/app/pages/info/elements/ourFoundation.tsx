@@ -2,6 +2,7 @@ import { CheckCircleOutline } from '@mui/icons-material';
 import { AnimatedScrollComponent } from '../../../components/AnimatedRenderContent';
 import type { CardsFundaments, ListFundationDefinitive } from '../interface/typesInfo';
 import './../index.css';
+import useMediaQueryScreen from '../../../hooks/MediaScreen/useMediaQueryScreen';
 
 interface OurFoundationProps {
     CardsFundaments: CardsFundaments[];
@@ -9,6 +10,9 @@ interface OurFoundationProps {
 }
 
 const OurFoundation: React.FC<OurFoundationProps> = ({ CardsFundaments, ListFundationDefinitive }) => {
+
+    const [isxSmall, isSmall] = useMediaQueryScreen();
+
     return (
         <section id="ourfundation" className="w-full h-full flex flex-col md:flex-row background-step-one">
             <article className="md:w-1/2 flex justify-center items-center p-10">
@@ -37,8 +41,8 @@ const OurFoundation: React.FC<OurFoundationProps> = ({ CardsFundaments, ListFund
                     </AnimatedScrollComponent>
                 </div>
             </article>
-            <article className="md:w-1/2 flex justify-center items-center p-10 " style={{ backgroundColor: '#00000075' }}>
-                <div className='flex flex-col bg-pink-500 rounded-xl' style={{width: '50%', maxWidth: '400px', maxHeight: '600px', backgroundColor: '#ffffff75', padding: '2rem' , overflow: 'hidden auto' }}>
+            <article className="md:w-1/2 flex justify-center items-center p-10" style={{ backgroundColor: '#00000075' }}>
+                <div className='flex flex-col bg-pink-500 rounded-xl' style={{width: (isSmall || isxSmall) ? '90%' : '50%', maxWidth: '400px', maxHeight: '600px', backgroundColor: '#ffffff75', padding: '2rem' , overflow: 'hidden auto' }}>
                     <div className="text-center mb-8">
                         <h1 className="text-4xl text-pink-500 font-bold champ-bold mb-2">Vitae</h1>
                         <h2 className="text-2xl text-white poppins-regular">Fundación</h2>

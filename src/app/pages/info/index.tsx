@@ -93,7 +93,7 @@ const InfoPage: React.FC = () => {
             className="w-full h-screen md:snap-y md:snap-mandatory overflow-y-auto"
             style={{ scrollBehavior: 'smooth' }}
         >
-            <div className="w-full h-screen md:snap-always md:snap-start">
+            <div className="w-full md:h-screen md:snap-always md:snap-start">
                 <UsServers services={services} visionLetter={visionLetter} missionLetter={missionLetter} />
             </div>
 
