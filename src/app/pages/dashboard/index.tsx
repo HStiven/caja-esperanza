@@ -44,7 +44,6 @@ const DashboardMain: React.FC = () => {
                     formData={formData}
                     setFormData={setFormData}
                     loginError={loginError}
-                    setLoginError={setLoginError}
                     handleLogin={handleLogin}
                 />
             ) : (

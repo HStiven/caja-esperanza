@@ -2,7 +2,6 @@ import Button from "@mui/material/Button";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { AnimatedScrollComponent } from "../../../components/AnimatedRenderContent";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../hooks/Autentication/useAutenticacion";
 
 type LoginFormData = {
     email: string;
@@ -14,12 +13,9 @@ type Props = {
     setIsViewLogin: React.Dispatch<React.SetStateAction<boolean>>;
     showHelpCard: boolean;
     setShowHelpCard: React.Dispatch<React.SetStateAction<boolean>>;
-
-    // 🔽 nuevas props
     formData: LoginFormData;
     setFormData: React.Dispatch<React.SetStateAction<LoginFormData>>;
     loginError: string;
-    setLoginError: React.Dispatch<React.SetStateAction<string>>;
     handleLogin: (e: React.FormEvent<HTMLFormElement>) => void | Promise<void>;
 };
 
@@ -31,12 +27,10 @@ const ResponsiveDashboard: React.FC<Props> = ({
     formData,
     setFormData,
     loginError,
-    setLoginError,
     handleLogin,
 }) => {
 
     const navigate = useNavigate();
-    const { login } = useAuth();
 
     return (
         <>
