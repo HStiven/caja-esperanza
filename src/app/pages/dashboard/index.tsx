@@ -6,26 +6,44 @@ import { useNavigate } from 'react-router-dom'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import useMediaQueryScreen from '../../hooks/MediaScreen/useMediaQueryScreen'
 import { ResponsiveDashboard } from './responsive/ResponsiveDashboard'
+import { useAuth } from '../../hooks/Autentication/useAutenticacion'
 
 const DashboardMain: React.FC = () => {
 
     const navigate = useNavigate();
     const [isViewLogin, setIsViewLogin] = useState(false);
+    const { user, login } = useAuth();
     const [showHelpCard, setShowHelpCard] = useState(false);
     const [isxSmall, isSmall] = useMediaQueryScreen();
+    const [formData, setFormData] = useState({ email: '', password: '' });
+    const [loginError, setLoginError] = useState('');
+
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoginError('');
+
+        try {
+            await login(formData.email, formData.password);
+            // Redirigir o mostrar éxito
+            navigate('/admin'); // O la ruta que quieras
+        } catch (error: any) {
+            setLoginError('Credenciales incorrectas');
+        }
+    };
+
 
     return (
         <section className="fondo-vitae">
 
             {(isxSmall || isSmall) ? (
-                <ResponsiveDashboard 
-                    isViewLogin={isViewLogin} 
-                    setIsViewLogin={setIsViewLogin} 
-                    showHelpCard={showHelpCard} 
+                <ResponsiveDashboard
+                    isViewLogin={isViewLogin}
+                    setIsViewLogin={setIsViewLogin}
+                    showHelpCard={showHelpCard}
                     setShowHelpCard={setShowHelpCard}
                 />
             ) : (
-                  <>
+                <>
                     {!isViewLogin ? (
                         <article className="w-full h-full flex justify-center items-center">
                             <div className="w-auto flex flex-col justify-center items-center">
@@ -87,22 +105,34 @@ const DashboardMain: React.FC = () => {
                                             border: '1px solid rgba(255, 255, 255, 0.18)',
                                             zIndex: 10
                                         }}>
-                                        <form className="form">
+
+                                        <form className="form" onSubmit={handleLogin}>
                                             <span className="input-span">
                                                 <label htmlFor="email" className="label poppins-bold">Email</label>
-                                                <input type="email" name="email" id="email"
-                                                /></span>
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    id="email"
+                                                    value={formData.email}
+                                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                    required
+                                                />
+                                            </span>
                                             <span className="input-span">
                                                 <label htmlFor="password" className="label poppins-bold">Password</label>
-                                                <input type="password" name="password" id="password"
-                                                /></span>
-                                            <input className="submit mt-5" type="submit" value="Iniciar sesión" />
-                                            <span className="span-little poppins-light">
-                                                <a href="#" onClick={(e) => { e.preventDefault(); setShowHelpCard(true); }}>
-                                                    ¿Duda de este modulo?
-                                                </a>
+                                                <input
+                                                    type="password"
+                                                    name="password"
+                                                    id="password"
+                                                    value={formData.password}
+                                                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                                                    required
+                                                />
                                             </span>
+                                            {loginError && <p className="poppins-bold mt-5 text-red-600 text-xl">{loginError}</p>}
+                                            <input className="submit mt-5" type="submit" value="Iniciar sesión" />
                                         </form>
+
                                     </div>
 
                                     {/* Carta de ayuda con animación */}
@@ -173,9 +203,6 @@ const DashboardMain: React.FC = () => {
                     )}
                 </>
             )}
-
-
-
         </section>
     )
 }
