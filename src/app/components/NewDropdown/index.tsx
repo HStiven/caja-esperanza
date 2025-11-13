@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import { AnimatedScrollComponent } from '../AnimatedRenderContent';
 import RadarIcon from '@mui/icons-material/Radar';
-import Groups2Icon from '@mui/icons-material/Groups2';
 import logo from './../../media/img-logo.png';
 const NewDropDown = () => {
     const [show, setShow] = useState<'mini' | 'full'>('mini');
