@@ -94,29 +94,27 @@ const InfoPage: React.FC = () => {
             id: "mapa-sede-principal",
             src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15906.96588166767!2d-74.2065026!3d4.6221277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9f00178ff577%3A0x5882b73321cb811b!2sFundacion%20Caja%20de%20Esperanza!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco",
             descriptionAlt: "Ubicación de Fundación Caja de Esperanza en Bosa, Bogotá",
-            direction: "Cl. 80a Sur #88I-33, Bosa, Bogotá, D.C, Bogotá"
+            direction: "Cl. 80a Sur #88I-33, Bosa, Bogotá, D.C, Bogotá",
+            cellphone: 30000,
+            email: 'ejemplo@gmail.com'
         },
         CarruselImageLocation: [
             {
                 id: "img-1",
-                src: "/images/location/fachada.jpg",
-                descriptionAlt: "Fachada principal de la fundación"
+                src: "https://dkumy02vmzh93.cloudfront.net/710c7d25-d736-47a6-8ddf-4c3cf0fd7b48.jpg",
+                descriptionAlt: "Fachada principal de la fundación",
             },
             {
                 id: "img-2",
-                src: "/images/location/interior-1.jpg",
-                descriptionAlt: "Área interior de actividades con niños"
+                src: "https://dkumy02vmzh93.cloudfront.net/710c7d25-d736-47a6-8ddf-4c3cf0fd7b48.jpg",
+                descriptionAlt: "Área interior de actividades con niños",
+             
             },
             {
                 id: "img-3",
-                src: "/images/location/actividades.jpg",
-                descriptionAlt: "Niños en actividades educativas"
+                src: "https://dkumy02vmzh93.cloudfront.net/710c7d25-d736-47a6-8ddf-4c3cf0fd7b48.jpg",
+                descriptionAlt: "Niños en actividades educativas",
             },
-            {
-                id: "img-4",
-                src: "/images/location/espacios.jpg",
-                descriptionAlt: "Espacios de la fundación"
-            }
         ]
     }
 

@@ -41,6 +41,8 @@ type LocationMap = {
     src: string;
     descriptionAlt?: string;
     direction: string;
+    cellphone: number;
+    email: string;
 }
 
 type CarruselImageLocation ={
