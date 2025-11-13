@@ -101,19 +101,24 @@ const InfoPage: React.FC = () => {
         CarruselImageLocation: [
             {
                 id: "img-1",
-                src: "https://dkumy02vmzh93.cloudfront.net/710c7d25-d736-47a6-8ddf-4c3cf0fd7b48.jpg",
+                src: "https://dkumy02vmzh93.cloudfront.net/bcabda69-aa45-4e14-9d51-4f2a9b29fa28.01",
                 descriptionAlt: "Fachada principal de la fundación",
             },
             {
                 id: "img-2",
-                src: "https://dkumy02vmzh93.cloudfront.net/710c7d25-d736-47a6-8ddf-4c3cf0fd7b48.jpg",
-                descriptionAlt: "Área interior de actividades con niños",
+                src: "https://dkumy02vmzh93.cloudfront.net/f6fabd1b-badf-415b-8801-32b14f1845ef.01",
+                descriptionAlt: "Mural",
              
             },
             {
                 id: "img-3",
-                src: "https://dkumy02vmzh93.cloudfront.net/710c7d25-d736-47a6-8ddf-4c3cf0fd7b48.jpg",
-                descriptionAlt: "Niños en actividades educativas",
+                src: "https://dkumy02vmzh93.cloudfront.net/82b7f8fc-191c-4b2b-b33f-d75fda885436.01",
+                descriptionAlt: "Área interior de actividades con niños",
+            },
+              {
+                id: "img-3",
+                src: "https://dkumy02vmzh93.cloudfront.net/1fbeb911-e073-4cbf-9d0b-f7f1e4ae1c29.01",
+                descriptionAlt: "Caja de bondad",
             },
         ]
     }

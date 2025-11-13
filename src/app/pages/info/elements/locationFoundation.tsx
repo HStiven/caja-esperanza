@@ -9,7 +9,7 @@ type Props = {
 const LocationFoundation: React.FC<Props> = ({fundacionLocationData}) => {
 
     return (
-       <section className="flex flex-col md:flex-row md:justify-center md:items-center bg-soft-pastel-step-two px-20 gap-5">
+       <section id="locationFundation" className="flex flex-col md:flex-row md:justify-center md:items-center bg-soft-pastel-step-two px-20 gap-5">
             <article className="md:h-full flex flex-col gap-5">
                 <h1 className="w-full champ-bold text-center md:text-start text-pink-700" style={{fontSize: '4.5rem'}}>Ubicación</h1>
                 <div className="md:h-full flex flex-col justify-center items-center gap-10" style={{padding:'0 10px'}}>

@@ -15,8 +15,7 @@ const NewDropDown = () => {
         // { path: '/dashboard', type: 'icon', iconClass: 'fa-solid fa-house', text: 'Inicio' },
         { id: 'usservers', type: 'icon', icon: <LocalLibraryIcon sx={{ fontSize: 26, color: 'white' }} />, text: 'Fundamentos' }, // Material
         { id: 'ourfundation', type: 'icon', icon: <RadarIcon sx={{ fontSize: 26, color: 'white' }} />, text: 'Radar' }, // Material
-        { id: '', type: 'iconClass', iconClass: 'fa-solid fa-circle-info', text: 'Misión y visión' }, // Font Awesome
-        { id: '', type: 'icon', icon: <Groups2Icon sx={{ fontSize: 26, color: 'white' }} />, text: 'Nosotros' }, // Material
+        { id: 'locationFundation', type: 'iconClass', iconClass: 'fa-solid fa-circle-info', text: 'Misión y visión' }, // Font Awesome
     ];
 
     const toggleSidebar = () => {
@@ -145,7 +144,7 @@ const NewDropDown = () => {
                                             const element = document.getElementById(btn.id);
                                             if (element) {
                                                 element.scrollIntoView({ behavior: 'smooth' });
-                                                window.location.hash = btn.id;
+                                                // window.location.hash = btn.id;
                                             }
                                         }}
                                     >
