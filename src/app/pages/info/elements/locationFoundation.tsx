@@ -1,4 +1,4 @@
-import Carrusel from "../../../components/Carrusel/carruselImageAnimation";
+import Carrusel from "../../../components/Carrusel/CarruselImageAnimations";
 import { MapEmbed } from "../../../components/LocationMap/LocationMap";
 import type { LocationMapInterfaceImage } from "../interface/typesInfo";
 
