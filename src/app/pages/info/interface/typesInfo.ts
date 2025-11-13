@@ -35,3 +35,21 @@ export interface ListFundationDefinitive {
     title: string;
     SubListFundation?: SubListFundation[];
 }
+
+type LocationMap = {
+    id: string;
+    src: string;
+    descriptionAlt?: string;
+    direction: string;
+}
+
+type CarruselImageLocation ={
+    id: string;
+    src: string;
+    descriptionAlt: string;
+}
+
+export interface LocationMapInterfaceImage{
+    LocationMap: LocationMap;
+    CarruselImageLocation: CarruselImageLocation[];
+}

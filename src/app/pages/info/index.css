@@ -8,3 +8,21 @@
 .background-step-one {
     background-image: radial-gradient(circle at 50% -20.71%, #ff97bd 0, #ff8ec2 10%, #ff85c7 20%, #fb7ccd 30%, #eb74d3 40%, #d86cd8 50%, #c166de 60%, #a663e4 70%, #8662e9 80%, #5c63ef 90%, #0065f3 100%);
 }
+
+.bg-soft-pastel-step-two {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(900px 600px at 10% 0%,
+            rgba(243, 214, 241, 0.85) 0%,
+            rgba(243, 214, 241, 0) 60%),
+        radial-gradient(900px 600px at 100% 10%,
+            rgba(216, 238, 250, 0.9) 0%,
+            rgba(216, 238, 250, 0) 55%),
+        linear-gradient(135deg,
+            #f5e9f6 0%,
+            #e9eefc 45%,
+            #dff4ef 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
