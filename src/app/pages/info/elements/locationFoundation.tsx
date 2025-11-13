@@ -48,7 +48,7 @@ const LocationFoundation: React.FC<Props> = ({fundacionLocationData}) => {
                 </div>
             </article>
             <article className="md:h-full flex flex-col justify-center items-center gap-5 mt-10 md:mt-0" style={{padding:'0 50px'}}>
-                <h1 className="w-full champ-bold text-center md:text-start text-pink-700" style={{fontSize: '4.5rem'}}>Sitio imagenes:</h1>
+                <h1 className="w-full champ-bold text-center md:text-start text-pink-700" style={{fontSize: '4.5rem'}}>Sitio imágenes:</h1>
                 <div className="w-full md:h-full flex flex-col justify-center items-center gap-5">                   
                     <div className="" style={{width: (isSmall || isxSmall) ? '150%' : '600px', height: '400px'}}>
                         <Carrusel images={fundacionLocationData.CarruselImageLocation} style={{ borderRadius: '20px'}} />         
