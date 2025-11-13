@@ -2,15 +2,41 @@ import Button from "@mui/material/Button";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { AnimatedScrollComponent } from "../../../components/AnimatedRenderContent";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/Autentication/useAutenticacion";
+
+type LoginFormData = {
+    email: string;
+    password: string;
+};
+
 type Props = {
     isViewLogin: boolean;
     setIsViewLogin: React.Dispatch<React.SetStateAction<boolean>>;
     showHelpCard: boolean;
     setShowHelpCard: React.Dispatch<React.SetStateAction<boolean>>;
-}
-const ResponsiveDashboard: React.FC<Props> = ({ isViewLogin, setIsViewLogin, showHelpCard, setShowHelpCard }) => {
+
+    // 🔽 nuevas props
+    formData: LoginFormData;
+    setFormData: React.Dispatch<React.SetStateAction<LoginFormData>>;
+    loginError: string;
+    setLoginError: React.Dispatch<React.SetStateAction<string>>;
+    handleLogin: (e: React.FormEvent<HTMLFormElement>) => void | Promise<void>;
+};
+
+const ResponsiveDashboard: React.FC<Props> = ({
+    isViewLogin,
+    setIsViewLogin,
+    showHelpCard,
+    setShowHelpCard,
+    formData,
+    setFormData,
+    loginError,
+    setLoginError,
+    handleLogin,
+}) => {
 
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     return (
         <>
@@ -75,21 +101,31 @@ const ResponsiveDashboard: React.FC<Props> = ({ isViewLogin, setIsViewLogin, sho
                                     border: '1px solid rgba(255, 255, 255, 0.18)',
                                     zIndex: 10
                                 }}>
-                                <form className="form">
+                                <form className="form" onSubmit={handleLogin}>
                                     <span className="input-span">
                                         <label htmlFor="email" className="label poppins-bold">Email</label>
-                                        <input type="email" name="email" id="email"
-                                        /></span>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            id="email"
+                                            value={formData.email}
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            required
+                                        />
+                                    </span>
                                     <span className="input-span">
                                         <label htmlFor="password" className="label poppins-bold">Password</label>
-                                        <input type="password" name="password" id="password"
-                                        /></span>
-                                    <input className="submit mt-5" type="submit" value="Iniciar sesión" />
-                                    <span className="span-little poppins-light">
-                                        <a href="#" onClick={(e) => { e.preventDefault(); setShowHelpCard(true); }}>
-                                            ¿Duda de este modulo?
-                                        </a>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            id="password"
+                                            value={formData.password}
+                                            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                                            required
+                                        />
                                     </span>
+                                    {loginError && <p className="poppins-bold mt-5 text-red-600 text-xl">{loginError}</p>}
+                                    <input className="submit mt-5" type="submit" value="Iniciar sesión" />
                                 </form>
                             </div>
 

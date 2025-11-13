@@ -12,7 +12,7 @@ const DashboardMain: React.FC = () => {
 
     const navigate = useNavigate();
     const [isViewLogin, setIsViewLogin] = useState(false);
-    const { user, login } = useAuth();
+    const { login } = useAuth();
     const [showHelpCard, setShowHelpCard] = useState(false);
     const [isxSmall, isSmall] = useMediaQueryScreen();
     const [formData, setFormData] = useState({ email: '', password: '' });
@@ -41,6 +41,11 @@ const DashboardMain: React.FC = () => {
                     setIsViewLogin={setIsViewLogin}
                     showHelpCard={showHelpCard}
                     setShowHelpCard={setShowHelpCard}
+                    formData={formData}
+                    setFormData={setFormData}
+                    loginError={loginError}
+                    setLoginError={setLoginError}
+                    handleLogin={handleLogin}
                 />
             ) : (
                 <>
