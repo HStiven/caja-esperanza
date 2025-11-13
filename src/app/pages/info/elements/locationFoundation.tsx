@@ -1,5 +1,6 @@
 import Carrusel from "../../../components/Carrusel/CarruselImageAnimations";
 import { MapEmbed } from "../../../components/LocationMap/LocationMap";
+import useMediaQueryScreen from "../../../hooks/MediaScreen/useMediaQueryScreen";
 import type { LocationMapInterfaceImage } from "../interface/typesInfo";
 
 type Props = {
@@ -7,6 +8,8 @@ type Props = {
 }
 
 const LocationFoundation: React.FC<Props> = ({fundacionLocationData}) => {
+
+    const [isxSmall, isSmall] = useMediaQueryScreen();
 
     return (
        <section id="locationFundation" className="flex flex-col md:flex-row md:justify-center md:items-center bg-soft-pastel-step-two px-20 gap-5">
@@ -44,11 +47,11 @@ const LocationFoundation: React.FC<Props> = ({fundacionLocationData}) => {
                     <MapEmbed googleMapsEmbedUrl={fundacionLocationData.LocationMap.src} />
                 </div>
             </article>
-            <article className="md:h-full flex flex-col justify-center items-center gap-5" style={{padding:'0 50px'}}>
+            <article className="md:h-full flex flex-col justify-center items-center gap-5 mt-10 md:mt-0" style={{padding:'0 50px'}}>
                 <h1 className="w-full champ-bold text-center md:text-start text-pink-700" style={{fontSize: '4.5rem'}}>Imágenes en carrusel:</h1>
                 <div className="w-full md:h-full flex flex-col justify-center items-center gap-5">                   
-                    <div className="" style={{width: '600px', height: '400px'}}>
-                        <Carrusel images={fundacionLocationData.CarruselImageLocation} style={{borderRadius: '20px'}} />         
+                    <div className="" style={{width: (isSmall || isxSmall) ? '150%' : '600px', height: '400px'}}>
+                        <Carrusel images={fundacionLocationData.CarruselImageLocation} style={{ borderRadius: '20px'}} />         
                     </div>
                 </div>
             </article>
