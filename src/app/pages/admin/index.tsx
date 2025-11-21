@@ -8,4 +8,4 @@ const AdminSettings: React.FC = () => {
     )
 }
 
-export default AdminSettings ;
+export default AdminSettings;

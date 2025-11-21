@@ -32,7 +32,7 @@ const UsServers: React.FC<UsServersProps> = ({ services, missionLetter, visionLe
                     direction="up"
                     delay={0.3}
                 >
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-10 2xl:mb-16">
                         <h1 className="text-5xl font-bold text-gray-800 mb-4 champ-bold">
                             Nuestros Servicios
                         </h1>
@@ -102,7 +102,7 @@ const UsServers: React.FC<UsServersProps> = ({ services, missionLetter, visionLe
                     direction="up"
                     delay={0.55}
                 >
-                    <div className="w-full flex flex-col md:flex-row gap-5 mt-16 text-center">
+                    <div className="w-full flex flex-col md:flex-row gap-5 mt-6 2xl:mt-16 text-center">
                         {/* Misión card - color and text from props (missionLetter) */}
                         {(() => {
                             const mColor = missionLetter?.color ?? 'green-500';
