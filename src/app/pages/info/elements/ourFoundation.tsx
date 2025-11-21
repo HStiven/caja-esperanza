@@ -11,7 +11,7 @@ interface OurFoundationProps {
 
 const OurFoundation: React.FC<OurFoundationProps> = ({ CardsFundaments, ListFundationDefinitive }) => {
 
-    const [isxSmall, isSmall] = useMediaQueryScreen();
+    const [isSmall] = useMediaQueryScreen();
 
     return (
         <section id="ourfundation" className="w-full h-full flex flex-col md:flex-row background-step-one">
