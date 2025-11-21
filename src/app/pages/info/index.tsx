@@ -1,26 +1,29 @@
 import './index.css';
-import { MusicNote, School, BusinessCenter, SelfImprovement, FitnessCenter, Diversity3 } from '@mui/icons-material';
 import type { CustomizeMissionLetter, ListFundationDefinitive, LocationMapInterfaceImage, UsService } from './interface/typesInfo';
 import { UsServers } from './elements/usServers';
 import { OurFoundation } from './elements/ourFoundation';
 import { LocationFoundation } from './elements/locationFoundation';
+
 const InfoPage: React.FC = () => {
     
     const services: UsService[] = [
         {
-            icon: <MusicNote className="text-4xl" />,
+            id: '',
+            icon: "MusicNote",
             title: "Caja de Talentos",
             description: "Clases de música en tres instrumentos: piano, guitarra y batería. Desarrollamos habilidades artísticas y creativas.",
-            color: "bg-blue-500"
+            color: "bg-blue-500",
         },
         {
-            icon: <School className="text-4xl" />,
+            id: '',
+            icon: "School",
             title: "Caja del Saber",
             description: "Programas de apoyo a las niñas en edad escolar, aumento de su autoestima y refuerzo de temas y valores con influencia de temas.",
             color: "bg-pink-500"
         },
         {
-            icon: <BusinessCenter className="text-4xl" />,
+            id: '',
+            icon: "BusinessCenter", 
             title: "Caja Empresarial",
             description: "Programa de capacitación, talleres, conferencias a nivel de emprendimiento. Reforzamos los valores empresariales.",
             color: "bg-purple-500"
@@ -39,28 +42,28 @@ const InfoPage: React.FC = () => {
 
     const foundationCards = [
         {
-            icon: <School style={{ fontSize: '2.8rem' }} />,
+            icon: "School",
             color: 'bg-red-500',
             textColor: 'text-white',
             title: 'Dimensión Cognitiva',
             description: 'Desarrollo del pensamiento crítico, habilidades analíticas y capacidad de aprendizaje continuo.'
         },
         {
-            icon: <SelfImprovement style={{ fontSize: '2.8rem' }} />,
+            icon: "SelfImprovement",
             color: 'bg-blue-500',
             textColor: 'text-white',
             title: 'Dimensión Espiritual',
             description: 'Cultivo de valores, principios éticos y conexión con el propósito de vida.'
         },
         {
-            icon: <FitnessCenter style={{ fontSize: '2.8rem' }} />,
+            icon: "FitnessCenter",
             color: 'bg-green-500',
             textColor: 'text-white',
             title: 'Dimensión Corporal',
             description: 'Cuidado de la salud física, bienestar corporal y desarrollo de hábitos saludables.'
         },
         {
-            icon: <Diversity3 style={{ fontSize: '2.8rem' }} />,
+            icon: "Diversity3",
             color: 'bg-purple-500',
             textColor: 'text-white',
             title: 'Dimensión Socio-afectiva',

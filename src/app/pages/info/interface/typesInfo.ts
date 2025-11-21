@@ -1,7 +1,15 @@
-import type { ReactNode } from 'react';
+export interface AdminConfig {
+  services: UsService[];
+  missionLetter: CustomizeMissionLetter;
+  visionLetter: CustomizeMissionLetter;
+  foundationCards: FoundationCard[];
+  foundationData: ListFundationDefinitive[];
+  locationData: LocationMapInterfaceImage;
+}
 
 export interface UsService {
-    icon: ReactNode;
+    id: string;
+    icon: string;
     title: string;
     description: string;
     color: string;
@@ -19,7 +27,7 @@ export interface CustomizeVisionChart{
 }
 
 export interface CardsFundaments {
-    icon: ReactNode;
+    icon: String;
     color: string;
     textColor: string;
     title: string;
@@ -54,4 +62,13 @@ type CarruselImageLocation ={
 export interface LocationMapInterfaceImage{
     LocationMap: LocationMap;
     CarruselImageLocation: CarruselImageLocation[];
+}
+
+export interface FoundationCard {
+  id: string;
+  icon: string;
+  color: string;
+  textColor: string;
+  title: string;
+  description: string;
 }
