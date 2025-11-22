@@ -80,6 +80,7 @@ const UsServers: React.FC<UsServersProps> = ({ services, missionLetter, visionLe
                                 <div className="px-8 pb-6">
                                     <button
                                         className="w-full py-3 bg-gray-800 text-white rounded-lg font-semibold hover:bg-gray-700 transition-colors duration-300 poppins-medium"
+                                        style={{ cursor: service.links ? 'pointer' : '' }}
                                         onClick={() => {
                                             if (!service.links) return;
                                             // internal route -> use react-router navigate to avoid full reload
@@ -100,67 +101,88 @@ const UsServers: React.FC<UsServersProps> = ({ services, missionLetter, visionLe
                 </AnimatedScrollComponent>
                 {/* Services Grid */}
 
-                <AnimatedScrollComponent
-                    key="full"
-                    className=""
-                    direction="up"
-                    delay={0.55}
-                >
-                    <div className="w-full flex flex-col md:flex-row gap-5 mt-6 2xl:mt-16 text-center">
-                        {/* Misión card - color and text from props (missionLetter) */}
-                        {(() => {
-                            const mColor = missionLetter?.color ?? 'green-500';
-                            const mBg = `bg-${mColor}`;
-                            const mBorder = `border-3 border-${mColor}`;
-                            const mTextClass = `text-${mColor}`;
+<AnimatedScrollComponent
+    key="full"
+    className=""
+    direction="up"
+    delay={0.55}
+>
+    <div className="w-full flex flex-col md:flex-row gap-5 mt-6 2xl:mt-16 text-center">
+        {/* Misión card */}
+        {(() => {
+            // Mapa de colores para Tailwind
+            const colorMap: { [key: string]: { bg: string; text: string; border: string } } = {
+                'green-500': { bg: 'bg-green-500', text: 'text-green-500', border: 'border-green-500' },
+                'blue-500': { bg: 'bg-blue-500', text: 'text-blue-500', border: 'border-blue-500' },
+                'red-500': { bg: 'bg-red-500', text: 'text-red-500', border: 'border-red-500' },
+                'pink-500': { bg: 'bg-pink-500', text: 'text-pink-500', border: 'border-pink-500' },
+                'purple-500': { bg: 'bg-purple-500', text: 'text-purple-500', border: 'border-purple-500' },
+                'yellow-500': { bg: 'bg-yellow-500', text: 'text-yellow-500', border: 'border-yellow-500' },
+                'indigo-500': { bg: 'bg-indigo-500', text: 'text-indigo-500', border: 'border-indigo-500' },
+                'teal-500': { bg: 'bg-teal-500', text: 'text-teal-500', border: 'border-teal-500' },
+            };
 
-                            return (
-                                <article className={`w-full md:w-1/2 flex rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl ${mBorder}`} style={{ maxHeight: '200px' }}>
-                                    <div className={`${mBg} py-6 flex justify-center items-center px-4`}>
-                                        <div className="bg-white p-4 rounded-full shadow-lg">
-                                            <CrisisAlertIcon className={mTextClass} />
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col justify-between bg-white py-8 px-8">
-                                        <h2 className="text-3xl font-bold text-gray-800 mb-6 champ-bold">
-                                            Misión
-                                        </h2>
-                                        <p className="text-lg text-gray-600 leading-relaxed poppins-regular">
-                                            {missionLetter?.textInfo ?? 'Promover la transformación social que propenda hacia la recuperación integral de las niñas y sus respectivas familias.'}
-                                        </p>
-                                    </div>
-                                </article>
-                            );
-                        })()}
+            const mColor = missionLetter?.color ?? 'green-500';
+            const mStyles = colorMap[mColor] || colorMap['green-500'];
+            const mBorder = `border-3 ${mStyles.border}`;
 
-                        {/* Visión card - color and text from props (visionLetter) */}
-                        {(() => {
-                            const vColor = visionLetter?.color ?? 'blue-500';
-                            const vBg = `bg-${vColor}`;
-                            const vBorder = `border-3 border-${vColor}`;
-                            const vTextClass = `text-${vColor}`;
-
-                            return (
-                                <article className={`w-full md:w-1/2 flex rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl ${vBorder}`} style={{ maxHeight: '200px' }}>
-                                    <div className={`${vBg} py-6 flex justify-center items-center px-4`}>
-                                        <div className="bg-white p-4 rounded-full shadow-lg">
-                                            <RemoveRedEyeIcon className={vTextClass} />
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col justify-between bg-white py-8 px-8">
-                                        <h2 className="text-3xl font-bold text-gray-800 mb-6 champ-bold">
-                                            Visión
-                                        </h2>
-                                        <p className="text-lg text-gray-600 leading-relaxed poppins-regular">
-                                            {visionLetter?.textInfo ?? 'Promover la transformación social que propenda hacia la recuperación integral de las niñas y sus respectivas familias.'}
-                                        </p>
-                                    </div>
-                                </article>
-                            );
-                        })()}
-
+            return (
+                <article className={`w-full md:w-1/2 flex rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl ${mBorder}`} style={{ maxHeight: '200px' }}>
+                    <div className={`${mStyles.bg} py-6 flex justify-center items-center px-4`}>
+                        <div className="bg-white p-4 rounded-full shadow-lg">
+                            <CrisisAlertIcon className={mStyles.text} />
+                        </div>
                     </div>
-                </AnimatedScrollComponent>
+                    <div className="flex flex-col justify-between bg-white py-8 px-8">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-6 champ-bold">
+                            Misión
+                        </h2>
+                        <p className="text-lg text-gray-600 leading-relaxed poppins-regular">
+                            {missionLetter?.textInfo ?? 'Promover la transformación social que propenda hacia la recuperación integral de las niñas y sus respectivas familias.'}
+                        </p>
+                    </div>
+                </article>
+            );
+        })()}
+
+        {/* Visión card */}
+        {(() => {
+            // Mapa de colores para Tailwind
+            const colorMap: { [key: string]: { bg: string; text: string; border: string } } = {
+                'green-500': { bg: 'bg-green-500', text: 'text-green-500', border: 'border-green-500' },
+                'blue-500': { bg: 'bg-blue-500', text: 'text-blue-500', border: 'border-blue-500' },
+                'red-500': { bg: 'bg-red-500', text: 'text-red-500', border: 'border-red-500' },
+                'pink-500': { bg: 'bg-pink-500', text: 'text-pink-500', border: 'border-pink-500' },
+                'purple-500': { bg: 'bg-purple-500', text: 'text-purple-500', border: 'border-purple-500' },
+                'yellow-500': { bg: 'bg-yellow-500', text: 'text-yellow-500', border: 'border-yellow-500' },
+                'indigo-500': { bg: 'bg-indigo-500', text: 'text-indigo-500', border: 'border-indigo-500' },
+                'teal-500': { bg: 'bg-teal-500', text: 'text-teal-500', border: 'border-teal-500' },
+            };
+
+            const vColor = visionLetter?.color ?? 'blue-500';
+            const vStyles = colorMap[vColor] || colorMap['blue-500'];
+            const vBorder = `border-3 ${vStyles.border}`;
+
+            return (
+                <article className={`w-full md:w-1/2 flex rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl ${vBorder}`} style={{ maxHeight: '200px' }}>
+                    <div className={`${vStyles.bg} py-6 flex justify-center items-center px-4`}>
+                        <div className="bg-white p-4 rounded-full shadow-lg">
+                            <RemoveRedEyeIcon className={vStyles.text} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-between bg-white py-8 px-8">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-6 champ-bold">
+                            Visión
+                        </h2>
+                        <p className="text-lg text-gray-600 leading-relaxed poppins-regular">
+                            {visionLetter?.textInfo ?? 'Promover la transformación social que propenda hacia la recuperación integral de las niñas y sus respectivas familias.'}
+                        </p>
+                    </div>
+                </article>
+            );
+        })()}
+    </div>
+</AnimatedScrollComponent>
             </div>
         </section>
     )

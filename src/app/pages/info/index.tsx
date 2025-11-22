@@ -3,42 +3,27 @@ import type { CustomizeMissionLetter, ListFundationDefinitive, LocationMapInterf
 import { UsServers } from './elements/usServers';
 import { OurFoundation } from './elements/ourFoundation';
 import { LocationFoundation } from './elements/locationFoundation';
+import { useFirebaseData } from '../../hooks/useFirebaseData/useFirebaseData';
 
 const InfoPage: React.FC = () => {
+
+    const { data: firebaseData, loading, error } = useFirebaseData();
+
+    const services = firebaseData?.services ?? [];
     
-    const services: UsService[] = [
-        {
-            id: '',
-            icon: "MusicNote",
-            title: "Caja de Talentos",
-            description: "Clases de música en tres instrumentos: piano, guitarra y batería. Desarrollamos habilidades artísticas y creativas.",
-            color: "bg-blue-500",
-        },
-        {
-            id: '',
-            icon: "School",
-            title: "Caja del Saber",
-            description: "Programas de apoyo a las niñas en edad escolar, aumento de su autoestima y refuerzo de temas y valores con influencia de temas.",
-            color: "bg-pink-500"
-        },
-        {
-            id: '',
-            icon: "BusinessCenter", 
-            title: "Caja Empresarial",
-            description: "Programa de capacitación, talleres, conferencias a nivel de emprendimiento. Reforzamos los valores empresariales.",
-            color: "bg-purple-500"
-        }
-    ];
+    const missionLetter = firebaseData?.missionLetter;
+    const visionLetter = firebaseData?.visionLetter;
 
-    const missionLetter: CustomizeMissionLetter = {
-        color: 'green-500',
-        textInfo: 'Nuestra misión es brindar apoyo integral a niñas en situación de vulnerabilidad, promoviendo su desarrollo personal y social a través de programas educativos, culturales y de bienestar.'
-    }
 
-    const visionLetter: CustomizeMissionLetter = {
-        color: 'blue-500',
-        textInfo: 'Nuestra visión es ser un referente en la protección y promoción de los derechos de las niñas, garantizando su bienestar y desarrollo integral.'
-    }
+    // const missionLetter: CustomizeMissionLetter = {
+    //     color: 'green-500',
+    //     textInfo: 'Nuestra misión es brindar apoyo integral a niñas en situación de vulnerabilidad, promoviendo su desarrollo personal y social a través de programas educativos, culturales y de bienestar.'
+    // }
+
+    // const visionLetter: CustomizeMissionLetter = {
+    //     color: 'blue-500',
+    //     textInfo: 'Nuestra visión es ser un referente en la protección y promoción de los derechos de las niñas, garantizando su bienestar y desarrollo integral.'
+    // }
 
     const foundationCards = [
         {
@@ -111,20 +96,44 @@ const InfoPage: React.FC = () => {
                 id: "img-2",
                 src: "https://dkumy02vmzh93.cloudfront.net/f6fabd1b-badf-415b-8801-32b14f1845ef.01",
                 descriptionAlt: "Mural",
-             
+
             },
             {
                 id: "img-3",
                 src: "https://dkumy02vmzh93.cloudfront.net/82b7f8fc-191c-4b2b-b33f-d75fda885436.01",
                 descriptionAlt: "Área interior de actividades con niños",
             },
-              {
+            {
                 id: "img-3",
                 src: "https://dkumy02vmzh93.cloudfront.net/1fbeb911-e073-4cbf-9d0b-f7f1e4ae1c29.01",
                 descriptionAlt: "Caja de bondad",
             },
         ]
     }
+
+    if (loading) {
+        return (
+            <section className="w-full h-screen flex justify-center items-center bg-soft-pastel-step-one">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+                    <p className="mt-4 text-gray-600">Cargando información...</p>
+                </div>
+            </section>
+        );
+    }
+
+    
+    if (error) {
+        return (
+            <section className="w-full h-screen flex justify-center items-center bg-soft-pastel-step-one">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+                    <p className="mt-4 text-pink-700">Error al cargar los datos.</p>
+                </div>
+            </section>
+        );
+    }
+
 
     return (
         <section
@@ -140,7 +149,7 @@ const InfoPage: React.FC = () => {
             </div>
 
             <div className="w-full md:h-auto md:snap-always md:snap-start">
-                <LocationFoundation fundacionLocationData={fundacionLocationData}/>
+                <LocationFoundation fundacionLocationData={fundacionLocationData} />
             </div>
         </section>
     )
