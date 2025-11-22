@@ -3,6 +3,7 @@ import { AnimatedScrollComponent } from '../../../components/AnimatedRenderConte
 import type { CardsFundaments, ListFundationDefinitive } from '../interface/typesInfo';
 import './../index.css';
 import useMediaQueryScreen from '../../../hooks/MediaScreen/useMediaQueryScreen';
+import { IconRenderer } from '../../../components/IconSelector/IconRenderer';
 
 interface OurFoundationProps {
     CardsFundaments: CardsFundaments[];
@@ -29,7 +30,10 @@ const OurFoundation: React.FC<OurFoundationProps> = ({ CardsFundaments, ListFund
                                 <div key={index} className="flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl p-5">
                                     <div className={`flex flex-col items-center`}>
                                         <div className={`${card.color} ${card.textColor} p-4 rounded-full shadow-lg`}>
-                                            {card.icon}
+                                            <IconRenderer
+                                                iconName={card.icon}
+                                                className="text-4xl"
+                                            />
                                         </div>
                                         <h3 className="text-2xl font-bold mt-4 mb-2 champ-bold text-center">
                                             {card.title}
@@ -42,7 +46,7 @@ const OurFoundation: React.FC<OurFoundationProps> = ({ CardsFundaments, ListFund
                 </div>
             </article>
             <article className="md:w-1/2 flex justify-center items-center p-10" style={{ backgroundColor: '#00000075' }}>
-                <div className='flex flex-col bg-pink-500 rounded-xl' style={{width: (isSmall) ? '90%' : '80%', maxWidth: '400px', maxHeight: '600px', backgroundColor: '#ffffff75', padding: '2rem' , overflow: 'hidden auto' }}>
+                <div className='flex flex-col bg-pink-500 rounded-xl' style={{ width: (isSmall) ? '90%' : '80%', maxWidth: '400px', maxHeight: '600px', backgroundColor: '#ffffff75', padding: '2rem', overflow: 'hidden auto' }}>
                     <div className="text-center mb-8">
                         <h1 className="text-4xl text-pink-500 font-bold champ-bold mb-2">Vitae</h1>
                         <h2 className="text-2xl text-white poppins-regular">Fundación</h2>
@@ -70,7 +74,7 @@ const OurFoundation: React.FC<OurFoundationProps> = ({ CardsFundaments, ListFund
                                             </li>
                                         ))}
                                     </ul>
-                                )}            
+                                )}
                             </div>
                         ))}
                     </div>

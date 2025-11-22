@@ -27,7 +27,7 @@ export interface CustomizeVisionChart{
 }
 
 export interface CardsFundaments {
-    icon: String;
+    icon: string;
     color: string;
     textColor: string;
     title: string;

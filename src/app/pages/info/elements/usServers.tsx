@@ -3,6 +3,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import CrisisAlertIcon from '@mui/icons-material/CrisisAlert';
 import { AnimatedScrollComponent } from "../../../components/AnimatedRenderContent";
 import { useNavigate } from 'react-router-dom';
+import IconRenderer from "../../../components/IconSelector/IconRenderer";
 interface UsServersProps {
     services: UsService[];
     missionLetter?: CustomizeMissionLetter;
@@ -58,7 +59,10 @@ const UsServers: React.FC<UsServersProps> = ({ services, missionLetter, visionLe
                                 {/* Icon Header */}
                                 <div className={`${service.color} py-6 flex justify-center`}>
                                     <div className="bg-white p-4 rounded-full shadow-lg">
-                                        {service.icon}
+                                        <IconRenderer
+                                            iconName={service.icon}  // ← USA IconRenderer aquí
+                                            className="text-4xl"
+                                        />
                                     </div>
                                 </div>
 
@@ -96,7 +100,7 @@ const UsServers: React.FC<UsServersProps> = ({ services, missionLetter, visionLe
                 </AnimatedScrollComponent>
                 {/* Services Grid */}
 
-                 <AnimatedScrollComponent
+                <AnimatedScrollComponent
                     key="full"
                     className=""
                     direction="up"
