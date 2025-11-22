@@ -119,7 +119,7 @@ export const ServiceEditor: React.FC<ServiceEditorProps> = ({
   const descriptionExceeded = descriptionLength > CHAR_LIMITS.description;
   const canSave = hasChanges && !titleExceeded && !descriptionExceeded;
 
-  const linksLength = (currentService.links || '').length;
+  // const linksLength = (currentService.links || '').length;
 
   return (
     <div className="space-y-6">

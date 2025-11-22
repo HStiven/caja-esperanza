@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import IconRenderer from './IconRenderer';
 
 const availableIcons = [

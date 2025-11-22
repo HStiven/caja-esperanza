@@ -1,5 +1,5 @@
 import './index.css';
-import type { CustomizeMissionLetter, ListFundationDefinitive, LocationMapInterfaceImage, UsService } from './interface/typesInfo';
+import type { ListFundationDefinitive, LocationMapInterfaceImage } from './interface/typesInfo';
 import { UsServers } from './elements/usServers';
 import { OurFoundation } from './elements/ourFoundation';
 import { LocationFoundation } from './elements/locationFoundation';
@@ -10,7 +10,7 @@ const InfoPage: React.FC = () => {
     const { data: firebaseData, loading, error } = useFirebaseData();
 
     const services = firebaseData?.services ?? [];
-    
+
     const missionLetter = firebaseData?.missionLetter;
     const visionLetter = firebaseData?.visionLetter;
 
